@@ -1,0 +1,57 @@
+/*
+Title: C Program to Separate Even and Odd Numbers Using Arrays
+
+Description:
+This program initializes an integer array, counts the number of even and odd
+values, and stores them into separate arrays. It then prints the count and the
+list of even and odd elements.
+
+Author: Nadeem Akhtar
+Language: C
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[6] = {78, 97, 65, 34, 65, 90};
+    int even = 0, odd = 0;
+
+    int evenArr[6];
+    int oddArr[6];
+
+    int evenArrIndex = 0;
+    int oddArrIndex = 0;
+
+    for (int i = 0; i < 6; i++)
+    {
+        if (arr[i] % 2 == 0)
+        {
+            even++;
+            evenArr[evenArrIndex] = arr[i];
+            evenArrIndex++;
+        }
+        else
+        {
+            odd++;
+            oddArr[oddArrIndex] = arr[i];
+            oddArrIndex++;
+        }
+    }
+
+    printf("Even count = %d, Odd count = %d\n", even, odd);
+
+    printf("Even numbers are: ");
+    for (int i = 0; i < evenArrIndex; i++)
+    {
+        printf("%d ", evenArr[i]);
+    }
+
+    printf("\nOdd numbers are: ");
+    for (int i = 0; i < oddArrIndex; i++)
+    {
+        printf("%d ", oddArr[i]);
+    }
+
+    return 0;
+}
