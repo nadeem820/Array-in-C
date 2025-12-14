@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main()
+{
+    int arr[] = {12, 16, 76, 55, 887, 34, 6};
+    int target = 887;
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int found = 0;
+
+    for(int i = 0; i < size; i++)
+    {
+        if(arr[i] == target)
+        {
+            printf("Index of target element is: %d", i);
+            found = 1;
+            break;   // stop searching
+        }
+    }
+
+    if(found == 0)
+    {
+        printf("Target element not found");
+    }
+
+    return 0;
+}
