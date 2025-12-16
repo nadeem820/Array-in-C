@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+    int arr1[] = {56, 78, 90, 34, 12};
+    int arr2[] = {3, 2, 5, 7, 9};
+    int arr3[] = {13, 21, 15, 17, 19};
+
+    int size1 = sizeof(arr1) / sizeof(arr1[0]);
+    int size2 = sizeof(arr2) / sizeof(arr2[0]);
+    int size3 = sizeof(arr3) / sizeof(arr3[0]);
+
+    int size4 = size1 + size2;
+    int size5 = size4 + size3;
+
+    int arr4[size5];
+
+    // Copy elements from first array
+    for (int i = 0; i < size1; i++) {
+        arr4[i] = arr1[i];
+    }
+
+    // Copy elements from second array
+    for (int i = size1; i < size4; i++) {
+        arr4[i] = arr2[i - size1];
+    }
+
+    // Copy elements from third array
+    for (int i = size4; i < size5; i++) {
+        arr4[i] = arr3[i - size4];
+    }
+
+    // Print merged array
+    printf("Merged Array: ");
+    for (int i = 0; i < size5; i++) {
+        printf("%d", arr4[i]);
+        if (i != size5 - 1) {
+            printf(", ");
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
