@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main()
+{
+    // Initialize array with duplicate values
+    int arr[] = {34, 45, 78, 34, 35, 90};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    // Remove duplicate elements
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = i + 1; j < size; j++)
+        {
+            // If duplicate found
+            if (arr[i] == arr[j])
+            {
+                // Shift elements to the left
+                for (int k = j; k < size - 1; k++)
+                {
+                    arr[k] = arr[k + 1];
+                }
+
+                // Reduce array size
+                size--;
+
+                // Check current index again
+                j--;
+            }
+        }
+    }
+
+    // Print array after removing duplicates
+    printf("Array after removing duplicates:\n");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
