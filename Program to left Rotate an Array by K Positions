@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[] = {1, 2, 3, 4, 5};
+    int size = sizeof(a) / sizeof(a[0]);
+    int k = 4;
+
+    // Handle cases where k > size
+    k = k % size;
+
+    // Left rotate the array k times
+    for (int i = 0; i < k; i++)
+    {
+        int temp = a[0];
+
+        for (int j = 0; j < size - 1; j++)
+        {
+            a[j] = a[j + 1];
+        }
+
+        a[size - 1] = temp;
+    }
+
+    // Print the rotated array
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}
